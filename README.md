@@ -54,7 +54,7 @@ Use this to disable the layout animation from masonry.js. This basically skips t
 
 ## `options.loader`
 (default: `true`)
-Whether or not to show the "loading" text from `options.text.loading`. You'll want to disable this if you're refreshing your grids on an interval, to prevent blinking card items.
+Whether or not to show the "loading" text from `options.templates.loader`. You'll want to disable this if you're refreshing your grids on an interval, to prevent blinking card items.
 
 ## `options.templates`
 An object defining custom templates. These are raw html used to generate the grid. 
