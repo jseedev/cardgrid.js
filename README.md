@@ -13,12 +13,14 @@ Place the cardgrid.js file on your web server, and include it on your web page a
 Once you have the script on your page, you can call `cardGrid(options)` on any element.
 
     $(() => {
-    	$('#testGrid').cardGrid({
-    		url: '/myRemoteScript',
-    		formatters: {
-    		heading: (c,r) => { return `My item! ${r.id}` },
-    		body: (c,r) => { return `Look at my sexy body. ${r.name}` },
-    		footer: (c,r) => { return `<a class="btn btn-primary">Nice button!</a>` }
+    	$('#testGrid').cardGrid(
+				{
+					url: '/myRemoteScript',
+					formatters: {
+					heading: (c,r) => { return `My item! ${r.id}` },
+					body: (c,r) => { return `Look at my sexy body. ${r.name}` },
+					footer: (c,r) => { return `<a class="btn btn-primary">Nice button!</a>` }
+				}
     	});
     });
 
