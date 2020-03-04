@@ -36,8 +36,8 @@ As mentioned in the intro, cardGrid is loosely based on Bootgrid, and the expect
 As mentioned in the intro, cardGrid is loosely based on Bootgrid, and the expected data is organized the same way:
 
     {
-    	current: 1, 	// Our current page
-    	rowCount: 10, 	// Results per page
+    	current: 1, 		// Our current page
+    	rowCount: 10, 		// Results per page
     	total: 20, 		// The total number of rows, before paging.
     	rows: [] 		// An array of objects representing each card
     }
@@ -108,7 +108,7 @@ This object defines the navigation parameters.
 This is a function used to modify the response data.
 
     options.responseHandler = function (res) {
-	    /*add time grid was updated to the results object*/
+			/*add time grid was updated to the results object*/
     	res.updated = parseInt(Date.now() / 1000,10);
     	return res;
     };
