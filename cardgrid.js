@@ -27,6 +27,7 @@ jQuery.fn.extend({
     var dopts= {
       navigation: true,
       animation: true,
+      animatePage: true,
       loader: true,
       formatters: {
         heading: null,
@@ -169,7 +170,7 @@ jQuery.fn.extend({
             onRow++;
             if (onRow >= body.rows.length) {
 		          // -- this will animate the cards into position.
-			          if (settings.animation) grid.masonry('reloadItems');
+			          if (settings.animation || (settings.animatePage && settings.pclick)) { delete settings.pclick; grid.masonry('reloadItems'); }
 			          grid.masonry('layout');
             }
           });
@@ -186,12 +187,14 @@ jQuery.fn.extend({
             if (totalPages < 1) totalPages = 1;
             var prev = $(settings.templates.pageButton).addClass(settings.classes.pageButton).html('<i class="fas fa-caret-left"></i>').click(function () {
               // code for prev
+              settings.pclick=true;
               settings.nav.current--;
               if (settings.nav.current < 1) settings.nav.current=1;
               $(gridParent).cardGrid("reload");
             });
             var next = $(settings.templates.pageButton).addClass(settings.classes.pageButton).html('<i class="fas fa-caret-right"></i>').click(function () {
               // code for next
+              settings.pclick=true;
               settings.nav.current++;
               if (settings.nav.current > totalPages) settings.nav.current=totalPages;
               $(gridParent).cardGrid("reload");
@@ -204,6 +207,7 @@ jQuery.fn.extend({
               newButton.html(pi);
               if (pi == settings.nav.current) { newButton.addClass('text-bold'); } // make current page bold.
               newButton.click(function () {
+              	settings.pclick=true;
                 settings.nav.current=parseInt($(this).html(),10);
                 $(gridParent).cardGrid("reload");
               });
