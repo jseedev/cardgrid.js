@@ -52,7 +52,11 @@ As mentioned in the intro, cardGrid is loosely based on Bootgrid, and the expect
  
 ## `options.animation`
 (default: `true`)
-Use this to disable the layout animation from masonry.js. This basically skips the reloadItems call on the grid masonry.
+Use this to disable the layout animation from masonry.js. This basically skips the reloadItems call on the grid masonry. To disable the animations universally, set `options.animatePage` to `false` as well.
+
+## `options.animatePage`
+(default: `true`)
+This will enable/disable animations when a user clicks a pagination button. It will ignore the setting above.
 
 ## `options.loader`
 (default: `true`)
